@@ -8,4 +8,4 @@ password: 'root',
 database: 'department_db'
 })
 
-modules.exports = connect;
+module.export = connect;
