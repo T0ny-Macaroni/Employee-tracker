@@ -152,3 +152,18 @@ function AddRole() {
       });
   });
 }
+
+function viewAllDepartments() {
+  const deptView = connect.query(`SELECT * FROM department`);
+  console.table(deptView);
+  mainMenu();
+}
+function addDepartment() {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "newDept",
+      message: "What is the name of your new department?",
+    },
+  ]);
+}
