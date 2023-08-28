@@ -159,11 +159,20 @@ function viewAllDepartments() {
   mainMenu();
 }
 function addDepartment() {
-  inquirer.prompt([
-    {
-      type: "input",
-      name: "newDept",
-      message: "What is the name of your new department?",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "newDept",
+        message: "What is the name of your new department?",
+      },
+    ])
+    .then((response) => {
+      const dept = response.newDept;
+      connect.query(
+        `INSERT INTO department(department_name) VALUES (${response.newDept})`
+      );
+    });
 }
+
+mainMenu();
